@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blob-counter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blob-counter
+  template:
+    metadata:
+      labels:
+        app: blob-counter
+    spec:
+      containers:
+      - name: blob-counter
+        image: gopal77esyasoft/blob-counter:latest
+        imagePullPolicy: Always
+        command: ["python", "main.py"]
